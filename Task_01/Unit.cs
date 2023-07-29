@@ -9,6 +9,9 @@
         private const double FriendlyFactor = 0.5;
         private const double EnemyFactor = 1.5;
 
+        private const double BerserkDamageMultiplier = 2;
+        private const double BerserkArmorMultiplier = 0.2;
+
         public Unit(
             string name,
             Factions faction,
@@ -36,13 +39,13 @@
         public double BaseDamage { get; }
 
         public double Damage => BerserkMode ?
-            BaseDamage * 2 :
+            BaseDamage * BerserkDamageMultiplier :
             BaseDamage;
 
         public int BaseArmor { get; }
 
         public int Armor => BerserkMode ?
-            (int)(BaseArmor * 0.2) :
+            (int)(BaseArmor * BerserkArmorMultiplier) :
             BaseArmor;
 
 
