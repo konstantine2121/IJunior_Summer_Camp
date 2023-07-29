@@ -9,7 +9,7 @@ namespace Task_01
         {
             var factory = new UnitFactory();
 
-            var unit1 = factory.CreateUnit("Орк");
+            var unit1 = factory.CreateUnit("Петя");
             var unit2 = factory.CreateUnit("Эльф");
 
             var infoPrinter1 = new UnitStatusPrinter(0, 0, unit1);

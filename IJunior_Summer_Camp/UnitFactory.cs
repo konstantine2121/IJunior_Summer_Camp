@@ -9,7 +9,7 @@ namespace Task_01
 
         private readonly Factions[] _factions = Enum.GetValues(typeof(Factions))
             .Cast<Factions>()
-            .ToArray(); 
+            .ToArray();
 
         public Unit CreateUnit(string name)
         {
@@ -27,7 +27,7 @@ namespace Task_01
             var min = 50;
             var max = 100;
             var delta = max - min;
-            return  min + _random.NextDouble()*delta;
+            return min + _random.NextDouble() * delta;
         }
 
         private double GetDamage()
@@ -55,7 +55,7 @@ namespace Task_01
         {
             var numberOfValues = 2;
             return _random.Next(numberOfValues) == 1 ?
-                true : 
+                true :
                 false;
         }
     }

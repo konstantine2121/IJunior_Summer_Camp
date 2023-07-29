@@ -1,8 +1,8 @@
 ﻿namespace Task_01
 {
-    internal class Unit : 
-        IFactionMember, 
-        IAttacker, 
+    internal class Unit :
+        IFactionMember,
+        IAttacker,
         IDamageable
     {
         private const double NeutralFactor = 1;
@@ -10,11 +10,11 @@
         private const double EnemyFactor = 1.5;
 
         public Unit(
-            string name, 
-            Factions faction, 
-            double health, 
-            double baseDamage, 
-            bool berserkMode, 
+            string name,
+            Factions faction,
+            double health,
+            double baseDamage,
+            bool berserkMode,
             int baseArmor)
         {
             Faction = faction;
@@ -56,8 +56,13 @@
 
         public void TakeDamage(IFactionMember attacker, double damage)
         {
+            if (damage <= 0)
+            {
+                return;
+            }
+
             var damageMultiplier = GetFactionDamageMultiplier(attacker.Faction, Faction);
-            Health -= (damage * ( 1 - ArmorMultiplier)) * damageMultiplier;
+            Health -= (damage * (1 - ArmorMultiplier)) * damageMultiplier;
         }
 
         public static double GetFactionDamageMultiplier(Factions attacker, Factions damageable)

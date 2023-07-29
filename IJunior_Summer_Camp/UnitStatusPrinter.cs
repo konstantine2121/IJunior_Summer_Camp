@@ -4,10 +4,10 @@ namespace Task_01
 {
     internal class UnitStatusPrinter
     {
+        private const int NameOffset = -10;
+
         private readonly Unit _unit;
         private int _lineCounter = 0;
-
-        private const int NameOffset = -10;
 
         public UnitStatusPrinter(int cursorTop, int cursorLeft, Unit unit)
         {
