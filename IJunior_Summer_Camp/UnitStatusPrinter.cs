@@ -7,6 +7,8 @@ namespace Task_01
         private readonly Unit _unit;
         private int _lineCounter = 0;
 
+        private const int NameOffset = -10;
+
         public UnitStatusPrinter(int cursorTop, int cursorLeft, Unit unit)
         {
             CursorTop = cursorTop;
@@ -31,49 +33,47 @@ namespace Task_01
 
         private void PrintName()
         {
-            SetCursor();
-            Console.WriteLine($"Имя: {_unit.Name}");
-            IncrementLineCounter();
+            PrintInfo($"{"Имя:",NameOffset} {_unit.Name}");
         }
 
         private void PrintFaction()
         {
-            SetCursor();
-            Console.WriteLine($"Фракция: {_unit.Faction}");
-            IncrementLineCounter();
+            PrintInfo($"{"Фракция:",NameOffset} {_unit.Faction}");
         }
 
         private void PrintHealth()
         {
-            SetCursor();
-            Console.WriteLine($"Здоровье: {_unit.Health}");
-            IncrementLineCounter();
+            PrintInfo($"{"Здоровье:",NameOffset} {FormatDouble(_unit.Health)}");
         }
 
         private void PrintDamage()
         {
-            SetCursor();
-            Console.WriteLine($"Урон: {_unit.Damage}");
-            IncrementLineCounter();
+            PrintInfo($"{"Урон:",NameOffset} {FormatDouble(_unit.Damage)}");
         }
 
         private void PrintBerserkMode()
         {
-            SetCursor();
-            Console.WriteLine($"Ярость: {_unit.BerserkMode}");
-            IncrementLineCounter();
+            PrintInfo($"{"Ярость:",NameOffset} {_unit.BerserkMode}");
         }
 
         private void PrintArmor()
         {
+            PrintInfo($"{"Броня:",NameOffset} {_unit.Armor}");
+        }
+
+        private void PrintInfo(string info)
+        {
             SetCursor();
-            Console.WriteLine($"Броня: {_unit.Armor}");
+            Console.WriteLine(info);
             IncrementLineCounter();
         }
 
-
-
         #region CursorMovement
+
+        private string FormatDouble(double value)
+        {
+            return value.ToString("0.000");
+        }
 
         private void SetCursor()
         {
