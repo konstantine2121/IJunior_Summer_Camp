@@ -24,7 +24,7 @@ namespace Task_01
 
         private double GetHealth()
         {
-            var min = 50;
+            var min = 60;
             var max = 100;
             var delta = max - min;
             return min + _random.NextDouble() * delta;
@@ -33,7 +33,7 @@ namespace Task_01
         private double GetDamage()
         {
             var min = 5;
-            var max = 50;
+            var max = 25;
             var delta = max - min;
             return min + _random.NextDouble() * delta;
         }

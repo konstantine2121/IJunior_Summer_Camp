@@ -45,9 +45,10 @@
             (int)(BaseArmor * 0.2) :
             BaseArmor;
 
-        public double ArmorMultiplier => Armor / 100.0;
 
         public bool BerserkMode { get; private set; }
+
+        private double ArmorMultiplier => 1 - Armor / 100.0;
 
         public void Attack(IDamageable target)
         {
@@ -62,7 +63,7 @@
             }
 
             var damageMultiplier = GetFactionDamageMultiplier(attacker.Faction, Faction);
-            Health -= (damage * (1 - ArmorMultiplier)) * damageMultiplier;
+            Health -= damage * ArmorMultiplier * damageMultiplier;
         }
 
         public static double GetFactionDamageMultiplier(Factions attacker, Factions damageable)
