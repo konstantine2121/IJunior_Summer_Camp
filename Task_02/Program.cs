@@ -1,6 +1,10 @@
 ﻿using System;
 using Task_02.Printers.Certain;
 using Task_02.Statistics;
+using Task_02.Statistics.Abstract;
+using Task_02.Statistics.Abstract.NumberOfMatches;
+using Task_02.Statistics.Abstract.WinRate;
+using Task_02.Statistics.Certain;
 
 namespace Task_02
 {

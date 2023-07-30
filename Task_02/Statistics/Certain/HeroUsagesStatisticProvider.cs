@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using Task_02.Printers.Certain;
-using Task_02.Statistics;
 
-namespace Task_02
+namespace Task_02.Statistics.Certain
 {
     internal class HeroUsagesStatisticProvider
     {

@@ -43,19 +43,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Statistics\AbstractStaticticProvider.cs" />
+    <Compile Include="Statistics\Abstract\AbstractStaticticProvider.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="HeroNames.cs" />
     <Compile Include="HeroScoreInfo.cs" />
     <Compile Include="HeroScoreInfosFactory.cs" />
-    <Compile Include="Statistics\HeroUsagesStatisticMostFavoriteProvider.cs" />
-    <Compile Include="Statistics\HeroUsagesStatisticMostSuccesfulProvider.cs" />
+    <Compile Include="Statistics\Abstract\NumberOfMatches\HeroUsagesStatisticMostFavoriteProvider.cs" />
+    <Compile Include="Statistics\Abstract\WinRate\HeroUsagesStatisticMostSuccesfulProvider.cs" />
     <Compile Include="Printers\Certain\HeroUsagesStatisticPrinter.cs" />
     <Compile Include="Statistics\HeroUsagesStatisticCalculator.cs" />
-    <Compile Include="Statistics\HeroUsagesStatisticMostUnfavoriteProvider.cs" />
-    <Compile Include="Statistics\HeroUsagesStatisticMostUnsuccessfulProvider.cs" />
-    <Compile Include="Statistics\HeroUsagesStatisticProvider.cs" />
-    <Compile Include="Statistics\HeroUsagesStatisticWinStreakProvider.cs" />
+    <Compile Include="Statistics\Abstract\NumberOfMatches\HeroUsagesStatisticMostUnfavoriteProvider.cs" />
+    <Compile Include="Statistics\Abstract\WinRate\HeroUsagesStatisticMostUnsuccessfulProvider.cs" />
+    <Compile Include="Statistics\Certain\HeroUsagesStatisticProvider.cs" />
+    <Compile Include="Statistics\Abstract\HeroUsagesStatisticWinStreakProvider.cs" />
     <Compile Include="Printers\Abstract\IPrinter.cs" />
     <Compile Include="MatchScoreInfoCalculator.cs" />
     <Compile Include="Printers\Abstract\NumberOfMatches\FavoritePrinter.cs" />
@@ -71,5 +71,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
