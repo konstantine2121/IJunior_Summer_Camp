@@ -44,9 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Statistics\Abstract\AbstractStaticticProvider.cs" />
-    <Compile Include="Hero.cs" />
-    <Compile Include="HeroNames.cs" />
-    <Compile Include="HeroScoreInfo.cs" />
+    <Compile Include="Entities\Hero.cs" />
+    <Compile Include="Enums\HeroNames.cs" />
+    <Compile Include="Entities\HeroScoreInfo.cs" />
     <Compile Include="HeroScoreInfosFactory.cs" />
     <Compile Include="Statistics\Abstract\NumberOfMatches\HeroUsagesStatisticMostFavoriteProvider.cs" />
     <Compile Include="Statistics\Abstract\WinRate\HeroUsagesStatisticMostSuccesfulProvider.cs" />
@@ -57,7 +57,7 @@
     <Compile Include="Statistics\Certain\HeroUsagesStatisticProvider.cs" />
     <Compile Include="Statistics\Abstract\HeroUsagesStatisticWinStreakProvider.cs" />
     <Compile Include="Printers\Abstract\IPrinter.cs" />
-    <Compile Include="MatchScoreInfoCalculator.cs" />
+    <Compile Include="ScoreInfoCalculator.cs" />
     <Compile Include="Printers\Abstract\NumberOfMatches\FavoritePrinter.cs" />
     <Compile Include="Printers\Abstract\NumberOfMatches\NumberOfMatchesPrinter.cs" />
     <Compile Include="Printers\Abstract\NumberOfMatches\UnfavoritePrinter.cs" />

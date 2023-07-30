@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Task_02.Entities;
 using Task_02.Printers.Abstract.NumberOfMatches;
 
 namespace Task_02.Statistics.Abstract.NumberOfMatches

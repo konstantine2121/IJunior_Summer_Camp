@@ -1,4 +1,6 @@
 ﻿using System.Collections.Generic;
+using Task_02.Entities;
+using Task_02.Enums;
 
 namespace Task_02
 {

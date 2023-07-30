@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Task_02.Entities;
 
 namespace Task_02.Printers.Abstract.NumberOfMatches
 {

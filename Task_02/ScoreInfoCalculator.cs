@@ -1,8 +1,9 @@
 ﻿using System.Linq;
+using Task_02.Entities;
 
 namespace Task_02
 {
-    internal static class MatchScoreInfoCalculator
+    internal static class ScoreInfoCalculator
     {
         public static double CalculateWinRate(HeroScoreInfo info)
         {

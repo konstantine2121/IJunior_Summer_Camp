@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Task_02
+namespace Task_02.Entities
 {
     internal class HeroScoreInfo
     {
@@ -15,13 +15,13 @@ namespace Task_02
         public Hero Hero { get; }
 
         public string HeroName => Hero.Name;
-        
+
         public IReadOnlyList<bool> Records => _records;
 
-        public double GetWinRate() => MatchScoreInfoCalculator.CalculateWinRate(this);
+        public double GetWinRate() => ScoreInfoCalculator.CalculateWinRate(this);
 
-        public int GetNumberOfPlayedMatches() => (int) MatchScoreInfoCalculator.CalculateNumberOfPlayedMatches(this);
+        public int GetNumberOfPlayedMatches() => (int)ScoreInfoCalculator.CalculateNumberOfPlayedMatches(this);
 
-        public int GetWinStreak() => (int)MatchScoreInfoCalculator.CalculateWinStreak(this);
+        public int GetWinStreak() => (int)ScoreInfoCalculator.CalculateWinStreak(this);
     }
 }
