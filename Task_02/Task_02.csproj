@@ -48,6 +48,7 @@
     <Compile Include="HeroScoreInfo.cs" />
     <Compile Include="HeroScoreInfosFactory.cs" />
     <Compile Include="HeroUsagesStatisticPrinter.cs" />
+    <Compile Include="HeroUsagesStatisticCalculator.cs" />
     <Compile Include="HeroUsagesStatisticProvider.cs" />
     <Compile Include="MatchScoreInfoCalculator.cs" />
     <Compile Include="Program.cs" />

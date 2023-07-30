@@ -23,7 +23,6 @@ namespace Task_02
             Console.WriteLine(line);
         }
 
-
         public void PrintUnsuccessful(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
             var rates = heroScoreInfos.Select(info => GetWinRateString(info));

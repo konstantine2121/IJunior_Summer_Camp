@@ -6,26 +6,45 @@ namespace Task_02
     {
         static void Main(string[] args)
         {
+            //RunUnsafeDataBindingExample();
+            RunSafeDataBindingExample();
+
+            Console.ReadLine();
+        }
+
+        private static void RunUnsafeDataBindingExample()
+        {
             var factory = new HeroScoreInfosFactory();
             var infos = factory.CreateScoreInfos();
-            var usagesStatisticProvider = new HeroUsagesStatisticProvider();
+            var usagesStatisticCalculator = new HeroUsagesStatisticCalculator();
 
-            var successful = usagesStatisticProvider.FindMostSuccessfulHeros(infos);
-            var unsuccessful = usagesStatisticProvider.FindMostUnsuccessfulHeros(infos);
-            var favourite = usagesStatisticProvider.FindMostFavouriteHeros(infos);
-            var unfavourite = usagesStatisticProvider.FindMostUnfavouriteHeros(infos);
-            var winStreak = usagesStatisticProvider.FindMostWinStreakHeros(infos);
+            var successful = usagesStatisticCalculator.FindMostSuccessfulHeros(infos);
+            var unsuccessful = usagesStatisticCalculator.FindMostUnsuccessfulHeros(infos);
+            var favourite = usagesStatisticCalculator.FindMostFavouriteHeros(infos);
+            var unfavourite = usagesStatisticCalculator.FindMostUnfavouriteHeros(infos);
+            var winStreak = usagesStatisticCalculator.FindMostWinStreakHeros(infos);
 
             var printer = new HeroUsagesStatisticPrinter();
 
             printer.PrintSuccessful(successful);
             printer.PrintUnsuccessful(unsuccessful);
+            //printer.PrintUnsuccessful(successful); // Incorrect data printing!!!!
             printer.PrintFavourite(favourite);
             printer.PrintUnfavourite(unfavourite);
             printer.PrintWinStreak(winStreak);
+        }
 
-            Console.ReadLine();
+        private static void RunSafeDataBindingExample()
+        {
+            var factory = new HeroScoreInfosFactory();
+            var infos = factory.CreateScoreInfos();
+            var provider = new HeroUsagesStatisticProvider(infos);
 
+            provider.ShowMostSuccessfulHeros();
+            provider.ShowMostUnsuccessfulHeros();
+            provider.ShowMostFavouriteHeros();
+            provider.ShowMostUnfavouriteHeros();
+            provider.ShowMostWinStreakHeros();
         }
     }
 }

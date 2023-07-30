@@ -1,91 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.SqlClient;
 using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Task_02
 {
     internal class HeroUsagesStatisticProvider
     {
-        #region Find Successful 
+        private readonly List<HeroScoreInfo> _heroScoreInfos;
+        private readonly HeroUsagesStatisticCalculator _calculator = new HeroUsagesStatisticCalculator();
+        private readonly HeroUsagesStatisticPrinter _printer = new HeroUsagesStatisticPrinter();
 
-        public IEnumerable<HeroScoreInfo> FindMostSuccessfulHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public HeroUsagesStatisticProvider(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
-            return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateWinRate, SortOrder.Descending);
+            _heroScoreInfos = new List<HeroScoreInfo>(heroScoreInfos);
         }
 
-        public IEnumerable<HeroScoreInfo> FindMostUnsuccessfulHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public void ShowMostSuccessfulHeros()
         {
-            return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateWinRate, SortOrder.Ascending);
+            _printer.PrintSuccessful(_calculator.FindMostSuccessfulHeros(_heroScoreInfos));
         }
 
-        #endregion Find Successful
-
-        #region Find Favourite
-
-        public IEnumerable<HeroScoreInfo> FindMostFavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public void ShowMostUnsuccessfulHeros()
         {
-            return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Descending);
+            _printer.PrintUnsuccessful(_calculator.FindMostUnsuccessfulHeros(_heroScoreInfos));
         }
 
-        public IEnumerable<HeroScoreInfo> FindMostUnfavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public void ShowMostFavouriteHeros()
         {
-            return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Ascending);
+            _printer.PrintFavourite(_calculator.FindMostFavouriteHeros(_heroScoreInfos));
         }
 
-        #endregion Find Favourite
-
-        #region Find WinStreak
-
-        public IEnumerable<HeroScoreInfo> FindMostWinStreakHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public void ShowMostUnfavouriteHeros()
         {
-            return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateWinStreak, SortOrder.Descending);
+            _printer.PrintUnfavourite(_calculator.FindMostUnfavouriteHeros(_heroScoreInfos));
         }
 
-        #endregion Find WinStreak
-
-        private IEnumerable<HeroScoreInfo> FindHerosByCondition(IEnumerable<HeroScoreInfo> heroScoreInfos, Func<HeroScoreInfo, double> infoSelector, SortOrder sortOrder)
+        public void ShowMostWinStreakHeros()
         {
-            if (heroScoreInfos == null || !heroScoreInfos.Any())
-            {
-                return Enumerable.Empty<HeroScoreInfo>();
-            }
-
-            var cashedInfos = CalculateInfo(heroScoreInfos, infoSelector);
-            var infos = heroScoreInfos.ToList();
-            IOrderedEnumerable<HeroScoreInfo> ordered;
-
-            if (sortOrder == SortOrder.Ascending)
-            {
-                ordered = infos.OrderBy(info => cashedInfos[info]);
-            }
-            else
-            {
-                ordered = infos.OrderByDescending(info => cashedInfos[info]);
-            }
-
-            var targetValue = cashedInfos[ordered.First()];
-
-            return infos.Where(info => cashedInfos[info] == targetValue).ToList();
+            _printer.PrintWinStreak(_calculator.FindMostWinStreakHeros(_heroScoreInfos));
         }
-
-        #region Calculate Info
-
-        private static Dictionary<HeroScoreInfo, double> CalculateInfo(IEnumerable<HeroScoreInfo> heroScoreInfos, Func<HeroScoreInfo, double> infoSelector)
-        {
-            var cashedInfos = new Dictionary<HeroScoreInfo, double>();
-
-            foreach (var hero in heroScoreInfos)
-            {
-                if (!cashedInfos.ContainsKey(hero))
-                {
-                    cashedInfos.Add(hero, infoSelector(hero));
-                }
-            }
-
-            return cashedInfos;
-        }
-
-        #endregion Calculate Info
     }
 }
