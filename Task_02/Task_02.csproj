@@ -43,19 +43,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Hero.cs" />
-    <Compile Include="HeroNames.cs" />
-    <Compile Include="HeroScoreInfo.cs" />
-    <Compile Include="HeroScoreInfosFactory.cs" />
-    <Compile Include="HeroUsagesStatisticPrinter.cs" />
-    <Compile Include="HeroUsagesStatisticCalculator.cs" />
-    <Compile Include="HeroUsagesStatisticProvider.cs" />
-    <Compile Include="MatchScoreInfoCalculator.cs" />
+    <Compile Include="Statistics\Abstract\AbstractStaticticProvider.cs" />
+    <Compile Include="Entities\Hero.cs" />
+    <Compile Include="Enums\HeroNames.cs" />
+    <Compile Include="Entities\HeroScoreInfo.cs" />
+    <Compile Include="Factories\HeroScoreInfosFactory.cs" />
+    <Compile Include="Statistics\Abstract\NumberOfMatches\HeroUsagesStatisticMostFavoriteProvider.cs" />
+    <Compile Include="Statistics\Abstract\WinRate\HeroUsagesStatisticMostSuccesfulProvider.cs" />
+    <Compile Include="Printers\Certain\HeroUsagesStatisticPrinter.cs" />
+    <Compile Include="Statistics\HeroUsagesStatisticCalculator.cs" />
+    <Compile Include="Statistics\Abstract\NumberOfMatches\HeroUsagesStatisticMostUnfavoriteProvider.cs" />
+    <Compile Include="Statistics\Abstract\WinRate\HeroUsagesStatisticMostUnsuccessfulProvider.cs" />
+    <Compile Include="Statistics\Certain\HeroUsagesStatisticProvider.cs" />
+    <Compile Include="Statistics\Abstract\HeroUsagesStatisticWinStreakProvider.cs" />
+    <Compile Include="Printers\Abstract\IPrinter.cs" />
+    <Compile Include="Entities\ScoreInfoCalculator.cs" />
+    <Compile Include="Printers\Abstract\NumberOfMatches\FavoritePrinter.cs" />
+    <Compile Include="Printers\Abstract\NumberOfMatches\NumberOfMatchesPrinter.cs" />
+    <Compile Include="Printers\Abstract\NumberOfMatches\UnfavoritePrinter.cs" />
+    <Compile Include="Printers\Abstract\WinRate\WinRateSuccessfulPrinter.cs" />
+    <Compile Include="Printers\Abstract\WinRate\WinRateUnsuccessfulPrinter.cs" />
+    <Compile Include="Printers\Abstract\WinStrickPrinter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Printers\Abstract\WinRate\WinRatePrinter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

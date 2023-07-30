@@ -1,4 +1,4 @@
-﻿namespace Task_02
+﻿namespace Task_02.Entities
 {
     internal class Hero
     {

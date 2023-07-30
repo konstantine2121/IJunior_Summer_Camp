@@ -1,4 +1,11 @@
 ﻿using System;
+using Task_02.Factories;
+using Task_02.Printers.Certain;
+using Task_02.Statistics;
+using Task_02.Statistics.Abstract;
+using Task_02.Statistics.Abstract.NumberOfMatches;
+using Task_02.Statistics.Abstract.WinRate;
+using Task_02.Statistics.Certain;
 
 namespace Task_02
 {
@@ -6,8 +13,11 @@ namespace Task_02
     {
         static void Main(string[] args)
         {
-            //RunUnsafeDataBindingExample();
+            RunUnsafeDataBindingExample();
+            Console.WriteLine();
             RunSafeDataBindingExample();
+            Console.WriteLine();
+            RunAbstractDataBindingExample();
 
             Console.ReadLine();
         }
@@ -20,8 +30,8 @@ namespace Task_02
 
             var successful = usagesStatisticCalculator.FindMostSuccessfulHeros(infos);
             var unsuccessful = usagesStatisticCalculator.FindMostUnsuccessfulHeros(infos);
-            var favourite = usagesStatisticCalculator.FindMostFavouriteHeros(infos);
-            var unfavourite = usagesStatisticCalculator.FindMostUnfavouriteHeros(infos);
+            var favorite = usagesStatisticCalculator.FindMostFavouriteHeros(infos);
+            var unfavorite = usagesStatisticCalculator.FindMostUnfavouriteHeros(infos);
             var winStreak = usagesStatisticCalculator.FindMostWinStreakHeros(infos);
 
             var printer = new HeroUsagesStatisticPrinter();
@@ -29,8 +39,8 @@ namespace Task_02
             printer.PrintSuccessful(successful);
             printer.PrintUnsuccessful(unsuccessful);
             //printer.PrintUnsuccessful(successful); // Incorrect data printing!!!!
-            printer.PrintFavourite(favourite);
-            printer.PrintUnfavourite(unfavourite);
+            printer.PrintFavorite(favorite);
+            printer.PrintUnfavorite(unfavorite);
             printer.PrintWinStreak(winStreak);
         }
 
@@ -42,9 +52,29 @@ namespace Task_02
 
             provider.ShowMostSuccessfulHeros();
             provider.ShowMostUnsuccessfulHeros();
-            provider.ShowMostFavouriteHeros();
-            provider.ShowMostUnfavouriteHeros();
+            provider.ShowMostFavoriteHeros();
+            provider.ShowMostUnfavoriteHeros();
             provider.ShowMostWinStreakHeros();
+        }
+
+        private static void RunAbstractDataBindingExample()
+        {
+            var factory = new HeroScoreInfosFactory();
+            var infos = factory.CreateScoreInfos();
+
+            AbstractStatisticProvider[] providers = new AbstractStatisticProvider[]
+            {
+                new HeroUsagesStatisticMostSuccessfulProvider(infos),
+                new HeroUsagesStatisticMostUnsuccessfulProvider(infos),
+                new HeroUsagesStatisticMostFavoriteProvider(infos),
+                new HeroUsagesStatisticMostUnfavoriteProvider(infos),
+                new HeroUsagesStatisticWinStreakProvider(infos)
+            };
+
+            foreach (AbstractStatisticProvider provider in providers)
+            {
+                provider.Show();
+            }
         }
     }
 }

@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Task_02.Entities;
 
-namespace Task_02
+namespace Task_02.Printers.Certain
 {
     internal class HeroUsagesStatisticPrinter
     {
@@ -30,14 +31,14 @@ namespace Task_02
             Console.WriteLine(line);
         }
 
-        public void PrintFavourite(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public void PrintFavorite(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
             var matchesPlayed = heroScoreInfos.Select(info => GetMatchesString(info));
             var line = FavouriteMessage + string.Join(", ", matchesPlayed);
             Console.WriteLine(line);
         }
 
-        public void PrintUnfavourite(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public void PrintUnfavorite(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
             var matchesPlayed = heroScoreInfos.Select(info => GetMatchesString(info));
             var line = UnfavouriteMessage + string.Join(", ", matchesPlayed);

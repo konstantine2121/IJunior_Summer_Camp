@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
+using Task_02.Entities;
+using Task_02.Printers.Certain;
 
-namespace Task_02
+namespace Task_02.Statistics.Certain
 {
     internal class HeroUsagesStatisticProvider
     {
@@ -23,14 +25,14 @@ namespace Task_02
             _printer.PrintUnsuccessful(_calculator.FindMostUnsuccessfulHeros(_heroScoreInfos));
         }
 
-        public void ShowMostFavouriteHeros()
+        public void ShowMostFavoriteHeros()
         {
-            _printer.PrintFavourite(_calculator.FindMostFavouriteHeros(_heroScoreInfos));
+            _printer.PrintFavorite(_calculator.FindMostFavouriteHeros(_heroScoreInfos));
         }
 
-        public void ShowMostUnfavouriteHeros()
+        public void ShowMostUnfavoriteHeros()
         {
-            _printer.PrintUnfavourite(_calculator.FindMostUnfavouriteHeros(_heroScoreInfos));
+            _printer.PrintUnfavorite(_calculator.FindMostUnfavouriteHeros(_heroScoreInfos));
         }
 
         public void ShowMostWinStreakHeros()

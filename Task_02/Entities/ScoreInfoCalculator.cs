@@ -1,8 +1,8 @@
 ﻿using System.Linq;
 
-namespace Task_02
+namespace Task_02.Entities
 {
-    internal static class MatchScoreInfoCalculator
+    internal static class ScoreInfoCalculator
     {
         public static double CalculateWinRate(HeroScoreInfo info)
         {
@@ -23,7 +23,7 @@ namespace Task_02
             var maxStreak = 0;
             var currentStreak = 0;
 
-            foreach (var record in records) 
+            foreach (var record in records)
             {
                 if (record)
                 {

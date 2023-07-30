@@ -2,8 +2,9 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using Task_02.Entities;
 
-namespace Task_02
+namespace Task_02.Statistics
 {
     internal class HeroUsagesStatisticCalculator
     {
@@ -11,12 +12,12 @@ namespace Task_02
 
         public List<HeroScoreInfo> FindMostSuccessfulHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
-            return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateWinRate, SortOrder.Descending);
+            return FindHerosByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateWinRate, SortOrder.Descending);
         }
 
         public List<HeroScoreInfo> FindMostUnsuccessfulHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
-            return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateWinRate, SortOrder.Ascending);
+            return FindHerosByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateWinRate, SortOrder.Ascending);
         }
 
         #endregion Find Successful
@@ -25,12 +26,12 @@ namespace Task_02
 
         public List<HeroScoreInfo> FindMostFavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
-            return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Descending);
+            return FindHerosByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Descending);
         }
 
         public List<HeroScoreInfo> FindMostUnfavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
-            return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Ascending);
+            return FindHerosByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Ascending);
         }
 
         #endregion Find Favourite
@@ -39,13 +40,13 @@ namespace Task_02
 
         public List<HeroScoreInfo> FindMostWinStreakHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
-            return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateWinStreak, SortOrder.Descending);
+            return FindHerosByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateWinStreak, SortOrder.Descending);
         }
 
         #endregion Find WinStreak
 
         #region Private Members
-        
+
         private List<HeroScoreInfo> FindHerosByCondition(IEnumerable<HeroScoreInfo> heroScoreInfos, Func<HeroScoreInfo, double> infoSelector, SortOrder sortOrder)
         {
             if (heroScoreInfos == null || !heroScoreInfos.Any())
@@ -77,9 +78,9 @@ namespace Task_02
         }
 
         private static IOrderedEnumerable<HeroScoreInfo> OrderInfos(List<HeroScoreInfo> infos, Dictionary<HeroScoreInfo, double> cashedInfos, SortOrder sortOrder)
-        {            
+        {
             return sortOrder == SortOrder.Ascending ?
-                infos.OrderBy(info => cashedInfos[info]) : 
+                infos.OrderBy(info => cashedInfos[info]) :
                 infos.OrderByDescending(info => cashedInfos[info]);
         }
 
