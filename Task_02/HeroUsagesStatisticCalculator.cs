@@ -9,12 +9,12 @@ namespace Task_02
     {
         #region Find Successful 
 
-        public IEnumerable<HeroScoreInfo> FindMostSuccessfulHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public List<HeroScoreInfo> FindMostSuccessfulHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
             return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateWinRate, SortOrder.Descending);
         }
 
-        public IEnumerable<HeroScoreInfo> FindMostUnsuccessfulHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public List<HeroScoreInfo> FindMostUnsuccessfulHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
             return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateWinRate, SortOrder.Ascending);
         }
@@ -23,12 +23,12 @@ namespace Task_02
 
         #region Find Favourite
 
-        public IEnumerable<HeroScoreInfo> FindMostFavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public List<HeroScoreInfo> FindMostFavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
             return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Descending);
         }
 
-        public IEnumerable<HeroScoreInfo> FindMostUnfavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public List<HeroScoreInfo> FindMostUnfavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
             return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Ascending);
         }
@@ -37,41 +37,31 @@ namespace Task_02
 
         #region Find WinStreak
 
-        public IEnumerable<HeroScoreInfo> FindMostWinStreakHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public List<HeroScoreInfo> FindMostWinStreakHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
             return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateWinStreak, SortOrder.Descending);
         }
 
         #endregion Find WinStreak
 
-        private IEnumerable<HeroScoreInfo> FindHerosByCondition(IEnumerable<HeroScoreInfo> heroScoreInfos, Func<HeroScoreInfo, double> infoSelector, SortOrder sortOrder)
+        #region Private Members
+        
+        private List<HeroScoreInfo> FindHerosByCondition(IEnumerable<HeroScoreInfo> heroScoreInfos, Func<HeroScoreInfo, double> infoSelector, SortOrder sortOrder)
         {
             if (heroScoreInfos == null || !heroScoreInfos.Any())
             {
-                return Enumerable.Empty<HeroScoreInfo>();
+                return new List<HeroScoreInfo>();
             }
 
-            var cashedInfos = CalculateInfo(heroScoreInfos, infoSelector);
             var infos = heroScoreInfos.ToList();
-            IOrderedEnumerable<HeroScoreInfo> ordered;
+            var cashedInfoValues = CashInfoValues(infos, infoSelector);
+            IOrderedEnumerable<HeroScoreInfo> orderedInfos = OrderInfos(infos, cashedInfoValues, sortOrder);
+            var targetValue = cashedInfoValues[orderedInfos.First()];
 
-            if (sortOrder == SortOrder.Ascending)
-            {
-                ordered = infos.OrderBy(info => cashedInfos[info]);
-            }
-            else
-            {
-                ordered = infos.OrderByDescending(info => cashedInfos[info]);
-            }
-
-            var targetValue = cashedInfos[ordered.First()];
-
-            return infos.Where(info => cashedInfos[info] == targetValue).ToList();
+            return SelectTargetRecords(orderedInfos, cashedInfoValues, targetValue); ;
         }
 
-        #region Calculate Info
-
-        private static Dictionary<HeroScoreInfo, double> CalculateInfo(IEnumerable<HeroScoreInfo> heroScoreInfos, Func<HeroScoreInfo, double> infoSelector)
+        private static Dictionary<HeroScoreInfo, double> CashInfoValues(IEnumerable<HeroScoreInfo> heroScoreInfos, Func<HeroScoreInfo, double> infoSelector)
         {
             var cashedInfos = new Dictionary<HeroScoreInfo, double>();
 
@@ -86,6 +76,30 @@ namespace Task_02
             return cashedInfos;
         }
 
-        #endregion Calculate Info
+        private static IOrderedEnumerable<HeroScoreInfo> OrderInfos(List<HeroScoreInfo> infos, Dictionary<HeroScoreInfo, double> cashedInfos, SortOrder sortOrder)
+        {            
+            return sortOrder == SortOrder.Ascending ?
+                infos.OrderBy(info => cashedInfos[info]) : 
+                infos.OrderByDescending(info => cashedInfos[info]);
+        }
+
+        private static List<HeroScoreInfo> SelectTargetRecords(IOrderedEnumerable<HeroScoreInfo> orderedInfos, Dictionary<HeroScoreInfo, double> cashedInfos, double targetValue)
+        {
+            var result = new List<HeroScoreInfo>();
+
+            foreach (var info in orderedInfos)
+            {
+                if (cashedInfos[info] != targetValue)
+                {
+                    break;
+                }
+
+                result.Add(info);
+            }
+
+            return result;
+        }
+
+        #endregion Private Members
     }
 }
