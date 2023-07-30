@@ -23,12 +23,12 @@ namespace Task_02
 
         #region Find Favourite
 
-        public IEnumerable<HeroScoreInfo> FindMostFavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public IEnumerable<HeroScoreInfo> FindMostFavoriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
             return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Descending);
         }
 
-        public IEnumerable<HeroScoreInfo> FindMostUnfavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public IEnumerable<HeroScoreInfo> FindMostUnfavoriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
             return FindHerosByCondition(heroScoreInfos, MatchScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Ascending);
         }

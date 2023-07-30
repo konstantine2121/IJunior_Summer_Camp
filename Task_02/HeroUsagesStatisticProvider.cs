@@ -27,14 +27,14 @@ namespace Task_02
             _printer.PrintUnsuccessful(_calculator.FindMostUnsuccessfulHeros(_heroScoreInfos));
         }
 
-        public void ShowMostFavouriteHeros()
+        public void ShowMostFavoriteHeros()
         {
-            _printer.PrintFavourite(_calculator.FindMostFavouriteHeros(_heroScoreInfos));
+            _printer.PrintFavorite(_calculator.FindMostFavoriteHeros(_heroScoreInfos));
         }
 
-        public void ShowMostUnfavouriteHeros()
+        public void ShowMostUnfavoriteHeros()
         {
-            _printer.PrintUnfavourite(_calculator.FindMostUnfavouriteHeros(_heroScoreInfos));
+            _printer.PrintUnfavorite(_calculator.FindMostUnfavoriteHeros(_heroScoreInfos));
         }
 
         public void ShowMostWinStreakHeros()
