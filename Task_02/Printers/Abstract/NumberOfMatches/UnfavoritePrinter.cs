@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Task_02.Printers
+namespace Task_02.Printers.Abstract.NumberOfMatches
 {
-    internal class FavoritePrinter : NumberOfMatchesPrinter
+    internal class UnfavoritePrinter : NumberOfMatchesPrinter
     {
-        private string _favoriteMessage = "Самый любимый герой: ";
+        public string _unfavoriteMessage = "Самый нелюбимый герой: ";
 
         public override void Print(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
             var streaks = heroScoreInfos.Select(info => GetMatchesString(info));
-            var line = _favoriteMessage + string.Join(", ", streaks);
+            var line = _unfavoriteMessage + string.Join(", ", streaks);
             Console.WriteLine(line);
         }
     }

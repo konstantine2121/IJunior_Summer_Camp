@@ -1,5 +1,5 @@
 ﻿using System.Collections.Generic;
-using Task_02.Printers;
+using Task_02.Printers.Certain;
 using Task_02.Statistics;
 
 namespace Task_02

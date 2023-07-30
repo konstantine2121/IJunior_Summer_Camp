@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Task_02.Printers
+namespace Task_02.Printers.Abstract.WinRate
 {
     internal class WinRateUnsuccessfulPrinter : WinRatePrinter
     {
