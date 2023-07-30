@@ -25,8 +25,8 @@ namespace Task_02
 
             var successful = usagesStatisticCalculator.FindMostSuccessfulHeros(infos);
             var unsuccessful = usagesStatisticCalculator.FindMostUnsuccessfulHeros(infos);
-            var favorite = usagesStatisticCalculator.FindMostFavoriteHeros(infos);
-            var unfavorite = usagesStatisticCalculator.FindMostUnfavoriteHeros(infos);
+            var favorite = usagesStatisticCalculator.FindMostFavouriteHeros(infos);
+            var unfavorite = usagesStatisticCalculator.FindMostUnfavouriteHeros(infos);
             var winStreak = usagesStatisticCalculator.FindMostWinStreakHeros(infos);
 
             var printer = new HeroUsagesStatisticPrinter();

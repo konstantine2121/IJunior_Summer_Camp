@@ -9,7 +9,7 @@ namespace Task_02.Statistics
 
         internal override void Show()
         {
-            Printer.Print(Calculator.FindMostUnfavoriteHeros(Infos));
+            Printer.Print(Calculator.FindMostUnfavouriteHeros(Infos));
         }
     }
 }
