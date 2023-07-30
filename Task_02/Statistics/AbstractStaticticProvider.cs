@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace Task_02
+namespace Task_02.Statistics
 {
     internal abstract class AbstractStatisticProvider
     {

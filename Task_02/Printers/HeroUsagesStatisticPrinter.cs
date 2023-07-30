@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace Task_02
+namespace Task_02.Printers
 {
     internal class HeroUsagesStatisticPrinter
     {

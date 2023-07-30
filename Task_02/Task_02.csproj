@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -43,16 +43,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Statistics\AbstractStaticticProvider.cs" />
     <Compile Include="Hero.cs" />
     <Compile Include="HeroNames.cs" />
     <Compile Include="HeroScoreInfo.cs" />
     <Compile Include="HeroScoreInfosFactory.cs" />
-    <Compile Include="HeroUsagesStatisticPrinter.cs" />
-    <Compile Include="HeroUsagesStatisticCalculator.cs" />
-    <Compile Include="HeroUsagesStatisticProvider.cs" />
+    <Compile Include="Statistics\HeroUsagesStatisticMostFavoriteProvider.cs" />
+    <Compile Include="Statistics\HeroUsagesStatisticMostSuccesfulProvider.cs" />
+    <Compile Include="Printers\HeroUsagesStatisticPrinter.cs" />
+    <Compile Include="Statistics\HeroUsagesStatisticCalculator.cs" />
+    <Compile Include="Statistics\HeroUsagesStatisticMostUnfavoriteProvider.cs" />
+    <Compile Include="Statistics\HeroUsagesStatisticMostUnsuccessfulProvider.cs" />
+    <Compile Include="Statistics\HeroUsagesStatisticProvider.cs" />
+    <Compile Include="Statistics\HeroUsagesStatisticWinStreakProvider.cs" />
+    <Compile Include="Statistics\IPrinter.cs" />
     <Compile Include="MatchScoreInfoCalculator.cs" />
+    <Compile Include="Printers\FavoritePrinter.cs" />
+    <Compile Include="Printers\NumberOfMatchesPrinter.cs" />
+    <Compile Include="Printers\UnfavoritePrinter.cs" />
+    <Compile Include="Printers\WinRateSuccessfulPrinter.cs" />
+    <Compile Include="Printers\WinRateUnsuccessfulPrinter.cs" />
+    <Compile Include="Printers\WinStrickPrinter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Printers\WinRatePrinter.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

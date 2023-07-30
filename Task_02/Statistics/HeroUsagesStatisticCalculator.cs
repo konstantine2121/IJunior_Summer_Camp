@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 
-namespace Task_02
+namespace Task_02.Statistics
 {
     internal class HeroUsagesStatisticCalculator
     {
