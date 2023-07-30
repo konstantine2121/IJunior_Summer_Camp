@@ -2,7 +2,7 @@
 using Task_02.Entities;
 using Task_02.Enums;
 
-namespace Task_02
+namespace Task_02.Factories
 {
     internal class HeroScoreInfosFactory
     {

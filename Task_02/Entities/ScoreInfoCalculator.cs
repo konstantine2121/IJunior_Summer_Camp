@@ -1,7 +1,6 @@
 ﻿using System.Linq;
-using Task_02.Entities;
 
-namespace Task_02
+namespace Task_02.Entities
 {
     internal static class ScoreInfoCalculator
     {
@@ -24,7 +23,7 @@ namespace Task_02
             var maxStreak = 0;
             var currentStreak = 0;
 
-            foreach (var record in records) 
+            foreach (var record in records)
             {
                 if (record)
                 {
