@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Task_02.Statistics;
 
-namespace Task_02.Printers
+namespace Task_02.Printers.Abstract
 {
     internal class WinStrickPrinter : IPrinter
     {

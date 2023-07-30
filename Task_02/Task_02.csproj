@@ -56,7 +56,7 @@
     <Compile Include="Statistics\HeroUsagesStatisticMostUnsuccessfulProvider.cs" />
     <Compile Include="Statistics\HeroUsagesStatisticProvider.cs" />
     <Compile Include="Statistics\HeroUsagesStatisticWinStreakProvider.cs" />
-    <Compile Include="Statistics\IPrinter.cs" />
+    <Compile Include="Printers\Abstract\IPrinter.cs" />
     <Compile Include="MatchScoreInfoCalculator.cs" />
     <Compile Include="Printers\Abstract\NumberOfMatches\FavoritePrinter.cs" />
     <Compile Include="Printers\Abstract\NumberOfMatches\NumberOfMatchesPrinter.cs" />
