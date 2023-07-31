@@ -10,7 +10,7 @@ namespace Task_02.Statistics.Abstract.NumberOfMatches
 
         internal override void Show()
         {
-            Printer.Print(Calculator.FindMostUnfavouriteHeros(Infos));
+            Printer.Print(Calculator.FindMostUnfavoriteHeroes(Infos));
         }
     }
 }

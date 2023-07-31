@@ -10,7 +10,7 @@ namespace Task_02.Statistics.Abstract
 
         internal override void Show()
         {
-            Printer.Print(Calculator.FindMostWinStreakHeros(Infos));
+            Printer.Print(Calculator.FindMostWinStreakHeroes(Infos));
         }
     }
 }

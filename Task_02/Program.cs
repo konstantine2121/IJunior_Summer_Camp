@@ -28,11 +28,11 @@ namespace Task_02
             var infos = factory.CreateScoreInfos();
             var usagesStatisticCalculator = new HeroUsagesStatisticCalculator();
 
-            var successful = usagesStatisticCalculator.FindMostSuccessfulHeros(infos);
-            var unsuccessful = usagesStatisticCalculator.FindMostUnsuccessfulHeros(infos);
-            var favorite = usagesStatisticCalculator.FindMostFavouriteHeros(infos);
-            var unfavorite = usagesStatisticCalculator.FindMostUnfavouriteHeros(infos);
-            var winStreak = usagesStatisticCalculator.FindMostWinStreakHeros(infos);
+            var successful = usagesStatisticCalculator.FindMostSuccessfulHeroes(infos);
+            var unsuccessful = usagesStatisticCalculator.FindMostUnsuccessfulHeroes(infos);
+            var favorite = usagesStatisticCalculator.FindMostFavoriteHeroes(infos);
+            var unfavorite = usagesStatisticCalculator.FindMostUnfavoriteHeroes(infos);
+            var winStreak = usagesStatisticCalculator.FindMostWinStreakHeroes(infos);
 
             var printer = new HeroUsagesStatisticPrinter();
 

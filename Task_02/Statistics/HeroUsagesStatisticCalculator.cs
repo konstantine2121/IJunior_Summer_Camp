@@ -12,44 +12,44 @@ namespace Task_02.Statistics
     {
         #region Find Successful 
 
-        public List<HeroScoreInfo> FindMostSuccessfulHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public List<HeroScoreInfo> FindMostSuccessfulHeroes(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
-            return FindHerosByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateWinRate, SortOrder.Descending);
+            return FindHeroesByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateWinRate, SortOrder.Descending);
         }
 
-        public List<HeroScoreInfo> FindMostUnsuccessfulHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public List<HeroScoreInfo> FindMostUnsuccessfulHeroes(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
-            return FindHerosByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateWinRate, SortOrder.Ascending);
+            return FindHeroesByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateWinRate, SortOrder.Ascending);
         }
 
         #endregion Find Successful
 
         #region Find Favourite
 
-        public List<HeroScoreInfo> FindMostFavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public List<HeroScoreInfo> FindMostFavoriteHeroes(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
-            return FindHerosByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Descending);
+            return FindHeroesByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Descending);
         }
 
-        public List<HeroScoreInfo> FindMostUnfavouriteHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public List<HeroScoreInfo> FindMostUnfavoriteHeroes(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
-            return FindHerosByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Ascending);
+            return FindHeroesByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateNumberOfPlayedMatches, SortOrder.Ascending);
         }
 
         #endregion Find Favourite
 
         #region Find WinStreak
 
-        public List<HeroScoreInfo> FindMostWinStreakHeros(IEnumerable<HeroScoreInfo> heroScoreInfos)
+        public List<HeroScoreInfo> FindMostWinStreakHeroes(IEnumerable<HeroScoreInfo> heroScoreInfos)
         {
-            return FindHerosByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateWinStreak, SortOrder.Descending);
+            return FindHeroesByCondition(heroScoreInfos, ScoreInfoCalculator.CalculateWinStreak, SortOrder.Descending);
         }
 
         #endregion Find WinStreak
 
         #region Private Members
 
-        private List<HeroScoreInfo> FindHerosByCondition(IEnumerable<HeroScoreInfo> heroScoreInfos, Func<HeroScoreInfo, double> infoSelector, SortOrder sortOrder)
+        private List<HeroScoreInfo> FindHeroesByCondition(IEnumerable<HeroScoreInfo> heroScoreInfos, Func<HeroScoreInfo, double> infoSelector, SortOrder sortOrder)
         {
             if (heroScoreInfos == null || !heroScoreInfos.Any())
             {

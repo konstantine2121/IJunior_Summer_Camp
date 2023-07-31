@@ -10,7 +10,7 @@ namespace Task_02.Statistics.Abstract.WinRate
 
         internal override void Show()
         {
-            Printer.Print(Calculator.FindMostUnsuccessfulHeros(Infos));
+            Printer.Print(Calculator.FindMostUnsuccessfulHeroes(Infos));
         }
     }
 }

@@ -17,27 +17,27 @@ namespace Task_02.Statistics.Certain
 
         public void ShowMostSuccessfulHeros()
         {
-            _printer.PrintSuccessful(_calculator.FindMostSuccessfulHeros(_heroScoreInfos));
+            _printer.PrintSuccessful(_calculator.FindMostSuccessfulHeroes(_heroScoreInfos));
         }
 
         public void ShowMostUnsuccessfulHeros()
         {
-            _printer.PrintUnsuccessful(_calculator.FindMostUnsuccessfulHeros(_heroScoreInfos));
+            _printer.PrintUnsuccessful(_calculator.FindMostUnsuccessfulHeroes(_heroScoreInfos));
         }
 
         public void ShowMostFavoriteHeros()
         {
-            _printer.PrintFavorite(_calculator.FindMostFavouriteHeros(_heroScoreInfos));
+            _printer.PrintFavorite(_calculator.FindMostFavoriteHeroes(_heroScoreInfos));
         }
 
         public void ShowMostUnfavoriteHeros()
         {
-            _printer.PrintUnfavorite(_calculator.FindMostUnfavouriteHeros(_heroScoreInfos));
+            _printer.PrintUnfavorite(_calculator.FindMostUnfavoriteHeroes(_heroScoreInfos));
         }
 
         public void ShowMostWinStreakHeros()
         {
-            _printer.PrintWinStreak(_calculator.FindMostWinStreakHeros(_heroScoreInfos));
+            _printer.PrintWinStreak(_calculator.FindMostWinStreakHeroes(_heroScoreInfos));
         }
     }
 }

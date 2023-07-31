@@ -49,7 +49,7 @@ namespace Task_02_UnitTests
             const string expectedHero = HeroNames.Corkes;
 
             // act
-            var successfulHeroes = _calculator.FindMostSuccessfulHeros(_heroes);
+            var successfulHeroes = _calculator.FindMostSuccessfulHeroes(_heroes);
 
             // assert
             if (successfulHeroes.Count == 0
@@ -68,7 +68,7 @@ namespace Task_02_UnitTests
             const string expectedHero = HeroNames.Yun_Jin;
 
             // act
-            var unsuccessfulHeroes = _calculator.FindMostUnsuccessfulHeros(_heroes);
+            var unsuccessfulHeroes = _calculator.FindMostUnsuccessfulHeroes(_heroes);
 
             // assert
             if (unsuccessfulHeroes.Count == 0
@@ -87,7 +87,7 @@ namespace Task_02_UnitTests
             const string expectedHero = HeroNames.Nova;
 
             // act
-            var favoriteHeroes = _calculator.FindMostFavouriteHeros(_heroes);
+            var favoriteHeroes = _calculator.FindMostFavoriteHeroes(_heroes);
 
             // assert
             if (favoriteHeroes.Count == 0
@@ -110,7 +110,7 @@ namespace Task_02_UnitTests
             };
 
             // act
-            var unfavoriteHeroes = _calculator.FindMostUnfavouriteHeros(_heroes);
+            var unfavoriteHeroes = _calculator.FindMostUnfavoriteHeroes(_heroes);
 
             // assert
             if (!unfavoriteHeroes.Any())
@@ -135,7 +135,7 @@ namespace Task_02_UnitTests
             };
 
             // act
-            var winstreakHeroes = _calculator.FindMostWinStreakHeros(_heroes);
+            var winstreakHeroes = _calculator.FindMostWinStreakHeroes(_heroes);
 
             // assert
             if (!winstreakHeroes.Any())
