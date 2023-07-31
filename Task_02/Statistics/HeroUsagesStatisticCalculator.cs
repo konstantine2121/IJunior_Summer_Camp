@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using Task_02.Entities;
 
+[assembly: InternalsVisibleTo("Task_02_UnitTests")]
 namespace Task_02.Statistics
 {
     internal class HeroUsagesStatisticCalculator
